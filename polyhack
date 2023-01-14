@@ -1,0 +1,234 @@
+import telebot
+from telebot import types
+token = "5978245240:AAFcgBaoLTjM6FhE35bjMlppcv1joaOl0bc"
+bot = telebot.TeleBot(token=token)
+what = 'Здравствуйте!!! Что желаете заказать?'
+markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+vesh = []
+
+@bot.message_handler(commands=['start'])
+def echo(message):
+    text = message.text
+    user = message.chat.id
+    markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+    btn2 = types.KeyboardButton('🔥Каталог🔥')
+    markup.add(btn2)
+    bot.send_message(user, 'Вы в главном меню'.format(message.from_user), reply_markup=markup)
+@bot.message_handler(content_types=['text'])
+def bot_message(message):
+    if message.text == '🔥Каталог🔥':
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5= types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+    if message.text == 'Электрогитара':
+        text = message.text
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        chan1 = types.KeyboardButton('Арендовать Электрогитара')
+        markup.add(back, chan1)
+        bot.send_message(user, 'Желаете взять?'.format(message.from_user), reply_markup=markup)
+
+    if 'Арендовать Электрогитара' in message.text:
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_photo(message.chat.id,'https://skifmusic.ru/static/product/496/499/496499-elektrogitara-yamaha-revstar-rs320-red-copper-6661c5.png')
+        pup1 = types.KeyboardButton('Вернуть Электрогитара')
+        markup.add(pup1)
+        bot.send_message(message.chat.id, 'Можете забрать предмет у администрации'.format(message.from_user), reply_markup=markup)
+    if 'Вернуть Электрогитара' in message.text:
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5 = types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+    if '🔙back🔙' in message.text:
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5 = types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+    if message.text == 'Акустическая гитара':
+        text = message.text
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        chan1 = types.KeyboardButton('Арендовать Акустическая гитара')
+        markup.add(back, chan1)
+        bot.send_message(user, 'Желаете взять?'.format(message.from_user), reply_markup=markup)
+
+    if 'Арендовать Акустическая гитара' in message.text:
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_photo(message.chat.id, 'https://avatars.mds.yandex.net/get-mpic/5222168/img_id2003425076949329148.jpeg/orig' )
+        pup1 = types.KeyboardButton('Вернуть Акустическая гитара')
+        markup.add(pup1)
+        bot.send_message(message.chat.id, 'Можете забрать предмет у администрации'.format(message.from_user), reply_markup=markup)
+    if 'Вернуть Акустическая гитара' in message.text:
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5 = types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+    if '🔙back🔙' in message.text:
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5 = types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+
+    if message.text == 'Иманджинариум':
+        text = message.text
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        chan1 = types.KeyboardButton('Арендовать Иманджинариум')
+        markup.add(back, chan1)
+        bot.send_message(user, 'Желаете взять?'.format(message.from_user), reply_markup=markup)
+
+    if 'Арендовать Иманджинариум' in message.text:
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_photo(message.chat.id, 'https://fodar.ru/upload/iblock/a7b/a7b0fdaa674dccfb84595784fb533276.jpg' )
+        pup1 = types.KeyboardButton('Вернуть Иманджинариум')
+        markup.add(pup1)
+        bot.send_message(message.chat.id, 'Можете забрать предмет у администрации'.format(message.from_user), reply_markup=markup)
+    if 'Вернуть Иманджинариум' in message.text:
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5 = types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+    if '🔙back🔙' in message.text:
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5 = types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+    if message.text == 'Ticket to ride':
+        text = message.text
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        chan1 = types.KeyboardButton('Арендовать Ticket to ride')
+        markup.add(back, chan1)
+        bot.send_message(user, 'Желаете взять?'.format(message.from_user), reply_markup=markup)
+
+    if 'Арендовать Ticket to ride' in message.text:
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_photo(message.chat.id, 'https://valimo.ru/d/%D0%B1%D0%B8%D0%BB%D0%B5%D1%82_%D0%BD%D0%B0_%D0%BF%D0%BE%D0%B5%D0%B7%D0%B4_%D0%BF%D0%BE_%D0%B5%D0%B2%D1%80%D0%BE%D0%BF%D0%B5_1.jpg' )
+        pup1 = types.KeyboardButton('Вернуть Ticket to ride')
+        markup.add(pup1)
+        bot.send_message(message.chat.id, 'Можете забрать предмет у администрации'.format(message.from_user), reply_markup=markup)
+    if 'Вернуть Ticket to ride' in message.text:
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5 = types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+    if '🔙back🔙' in message.text:
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5 = types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+
+    if message.text == 'Манчкин Апокалипсис':
+        text = message.text
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        chan1 = types.KeyboardButton('Арендовать Манчкин апокалипсис')
+        markup.add(back, chan1)
+        bot.send_message(user, 'Желаете взять?'.format(message.from_user), reply_markup=markup)
+
+    if 'Арендовать Манчкин апокалипсис' in message.text:
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bot.send_photo(message.chat.id, 'https://yandex.ru/images/search?from=tabbar&text=манчкин%20апокалипсис&family=yes&pos=2&img_url=http%3A%2F%2Fnastolki-spb.ru%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Flarge%2Fpublic%2Fuploads%2F2143%2Fmanchkin-apokalipsis.png&rpt=simage&lr=213' )
+        pup = types.KeyboardButton('Вернуть Манчкин апокалипсис')
+        markup.add(pup)
+        bot.send_message(message.chat.id, 'Можете забрать предмет у администрации'.format(message.from_user), reply_markup=markup)
+    if 'Вернуть Манчкин апокалипсис' in message.text:
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5 = types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+    if '🔙back🔙' in message.text:
+        user = message.chat.id
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        back = types.KeyboardButton('🔙back🔙')
+        btn = types.KeyboardButton('Манчкин Апокалипсис')
+        btn4 = types.KeyboardButton('Ticket to ride')
+        btn5 = types.KeyboardButton('Иманджинариум')
+        btn6 = types.KeyboardButton('Акустическая гитара')
+        btn7 = types.KeyboardButton('Электрогитара')
+        markup.add(back, btn7, btn6, btn5, btn4, btn)
+        bot.send_message(user, 'Что выберите, {0.first_name}?'.format(message.from_user), reply_markup=markup)
+
+
+
+
+
+# поллинг - вечный цикл с обновлением входящих сообщений
+bot.polling(none_stop=True)
